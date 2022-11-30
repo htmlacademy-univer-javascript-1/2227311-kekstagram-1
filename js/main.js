@@ -1,4 +1,3 @@
-import { generatePhotoObjects } from './data.js';
-import './utils.js';
+import { renderMiniatures } from './miniatures.js';
 
-generatePhotoObjects();
+renderMiniatures();
