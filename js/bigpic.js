@@ -1,3 +1,5 @@
+import { isEscapeKey } from './utils.js';
+
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img').querySelector('img');
 const likes = bigPicture.querySelector('.likes-count');
@@ -30,7 +32,7 @@ const renderBigPicture = (post) => {
   document.body.classList.remove('modal-open');
 
   document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
+    if (isEscapeKey(evt)) {
       evt.preventDefault();
       bigPicture.classList.add('hidden');
       document.body.classList.remove('modal-open');
