@@ -7,7 +7,7 @@ const NAMES = ['Миша',
 
 const generateComments = () => {
   const comments = [];
-  for (let i = 0; i < getRandomInt(1, 3); i++) {
+  for (let i = 0; i < getRandomInt(1, 20); i++) {
     const comment = {
       id: i,
       avatar: `img/avatar-${  getRandomInt(1, 6)  }.svg`,
