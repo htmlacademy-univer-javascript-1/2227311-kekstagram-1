@@ -19,12 +19,12 @@ const editScale = (evt) => {
   }
 };
 const FilterType = {
-    Chrome: 'effect-chrome',
-    Sepia: 'effect-sepia',
-    Marvin: 'effect-marvin',
-    Phobos: 'effect-phobos',
-    Heat: 'effect-heat',
-    None: 'effect-none'
+  Chrome: 'effect-chrome',
+  Sepia: 'effect-sepia',
+  Marvin: 'effect-marvin',
+  Phobos: 'effect-phobos',
+  Heat: 'effect-heat',
+  None: 'effect-none'
 };
 const editFilter = (filter) => {
   let min,max,step,start;
@@ -80,7 +80,6 @@ const editFilter = (filter) => {
     sliderField.classList.add('hidden');
   }
 };
-console.log(sliderElement);
 const effectChangeValue = (filter) => {
   const sliderValue = sliderElement.noUiSlider.get();
   document.querySelector('.effect-level__value').value = sliderValue;
