@@ -1,4 +1,5 @@
 import { isEscapeKey } from './utils.js';
+import { postPhoto } from './api.js';
 import { editScale, editFilter, effectChangeValue } from './editpic.js';
 //Picture
 const form = document.querySelector('.img-upload__form');
@@ -44,7 +45,6 @@ const disableSubmitButton = () => {
   }
 };
 
-
 imgUpload.addEventListener('change', (evt) => {
   evt.preventDefault();
   noUiSlider.create(sliderElement, {
@@ -70,6 +70,12 @@ imgUpload.addEventListener('change', (evt) => {
   });
   closeButton.addEventListener('click', closeEditWindow);
   disableSubmitButton();
+});
+
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  postPhoto(evt);
+  closeEditWindow();
 });
 
 imgUpload.addEventListener('keydown', (evt) => {
