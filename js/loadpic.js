@@ -44,15 +44,6 @@ const disableSubmitButton = () => {
     submitButton.disabled = true;
   }
 };
-const lockSubmitButton = () => {
-  submitButton.disabled = true;
-  submitButton.textContent = 'Опубликовываю...';
-};
-
-const unlockSubmitButton = () => {
-  submitButton.disabled = false;
-  submitButton.textContent = 'Опубликовать';
-};
 
 imgUpload.addEventListener('change', (evt) => {
   evt.preventDefault();
