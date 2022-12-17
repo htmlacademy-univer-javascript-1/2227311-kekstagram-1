@@ -1,4 +1,5 @@
 import { isEscapeKey } from './utils.js';
+import { postPhoto } from './api.js';
 import { editScale, editFilter, effectChangeValue } from './editpic.js';
 //Picture
 const form = document.querySelector('.img-upload__form');
@@ -43,7 +44,15 @@ const disableSubmitButton = () => {
     submitButton.disabled = true;
   }
 };
+const lockSubmitButton = () => {
+  submitButton.disabled = true;
+  submitButton.textContent = 'Опубликовываю...';
+};
 
+const unlockSubmitButton = () => {
+  submitButton.disabled = false;
+  submitButton.textContent = 'Опубликовать';
+};
 
 imgUpload.addEventListener('change', (evt) => {
   evt.preventDefault();
@@ -70,6 +79,12 @@ imgUpload.addEventListener('change', (evt) => {
   });
   closeButton.addEventListener('click', closeEditWindow);
   disableSubmitButton();
+});
+
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  postPhoto(evt);
+  closeEditWindow();
 });
 
 imgUpload.addEventListener('keydown', (evt) => {
