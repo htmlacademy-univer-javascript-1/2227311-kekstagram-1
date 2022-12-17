@@ -18,35 +18,42 @@ const editScale = (evt) => {
     picture.style.transform = `scale(${(parseInt(scale, 10) + 25) / 100})`;
   }
 };
-
+const FilterType = {
+    Chrome: 'effect-chrome',
+    Sepia: 'effect-sepia',
+    Marvin: 'effect-marvin',
+    Phobos: 'effect-phobos',
+    Heat: 'effect-heat',
+    None: 'effect-none'
+};
 const editFilter = (filter) => {
   let min,max,step,start;
   switch (filter) {
-    case 'effect-chrome':
+    case FilterType.Chrome:
       min = 0;
       max = 1;
       step = 0.1;
       start = 1;
       break;
-    case 'effect-sepia':
+    case FilterType.Sepia:
       min = 0;
       max = 1;
       step = 0.1;
       start = 1;
       break;
-    case 'effect-marvin':
+    case FilterType.Marvin:
       min = 0;
       max = 100;
       step = 1;
       start = 100;
       break;
-    case 'effect-phobos':
+    case FilterType.Phobos:
       min = 0;
       max = 3;
       step = 0.1;
       start = 3;
       break;
-    case 'effect-heat':
+    case FilterType.Heat:
       min = 1;
       max = 3;
       step = 0.1;
@@ -64,35 +71,37 @@ const editFilter = (filter) => {
       max: max
     },
     start: start,
-    step: step
+    step: step,
+    connect: 'lower'
   });
-  if (filter !== 'effect-none') {
+  if (filter !== FilterType.None) {
     sliderField.classList.remove('hidden');
   } else {
     sliderField.classList.add('hidden');
   }
 };
+console.log(sliderElement);
 const effectChangeValue = (filter) => {
   const sliderValue = sliderElement.noUiSlider.get();
   document.querySelector('.effect-level__value').value = sliderValue;
   switch (filter) {
-    case 'effect-chrome':
+    case FilterType.Chrome:
       filter = `grayscale(${sliderValue})`;
       break;
-    case 'effect-sepia':
+    case FilterType.Sepia:
       filter = `sepia(${sliderValue})`;
       break;
-    case 'effect-marvin':
+    case FilterType.Marvin:
       filter = `invert(${sliderValue}%)`;
       break;
-    case 'effect-phobos':
+    case FilterType.Phobos:
       filter = `blur(${sliderValue}px)`;
       break;
-    case 'effect-heat':
+    case FilterType.Heat:
       filter = `brightness(${sliderValue})`;
       break;
   }
-  if (filter === 'effect-none') {
+  if (filter === FilterType.None) {
     picture.style.filter = '';
   } else {
     picture.style.filter = filter;

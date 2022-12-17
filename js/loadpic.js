@@ -53,7 +53,8 @@ imgUpload.addEventListener('change', (evt) => {
       max: 100
     },
     start: 0,
-    step: 1
+    step: 1,
+    connect: 'lower'
   });
   const [picture] = imgUpload.files;
   document.body.classList.add('modal-open');
