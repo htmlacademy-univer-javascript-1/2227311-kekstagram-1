@@ -1,8 +1,10 @@
 import { setFilters } from './miniatures.js';
+
+const ALERT_SHOW_TIME = 5000;
+
 const errorMessage = document.querySelector('.error__message');
 const successMessage = document.querySelector('.success__message');
 const filters = document.querySelector('.img-filters');
-const ALERT_SHOW_TIME = 5000;
 
 const getPhotos = () => {
   fetch('https://26.javascript.pages.academy/kekstagram/data')
@@ -52,4 +54,4 @@ const postPhoto = (evt) => {
     });
 };
 
-export { getPhotos, postPhoto};
+export { getPhotos, postPhoto };

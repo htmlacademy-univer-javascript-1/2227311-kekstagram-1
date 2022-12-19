@@ -1,6 +1,6 @@
 import { isEscapeKey } from './utils.js';
 import { postPhoto } from './api.js';
-import { editScale, editFilter, effectChangeValue } from './editpic.js';
+import { editScale, editFilter, effectChangeValue } from './edit-pic.js';
 //Picture
 const form = document.querySelector('.img-upload__form');
 const imgUpload = form.querySelector('#upload-file');
@@ -112,7 +112,7 @@ const validateHashtag = (value) => {
   return correctHashtags;
 };
 
-const descriptionValidation = (value) => {
+const validateDescription = (value) => {
   correctDescription = value.length < 140;
   disableSubmitButton();
   return correctDescription;
@@ -126,7 +126,7 @@ pristine.addValidator(
 
 pristine.addValidator(
   descriptionInput,
-  descriptionValidation,
+  validateDescription,
   'Комментарий не должен превышать 140 символов'
 );
 pristine.validate();
