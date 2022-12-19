@@ -1,12 +1,16 @@
-import { renderMiniatures } from './miniatures.js';
+import { setFilters } from './miniatures.js';
 const errorMessage = document.querySelector('.error__message');
 const successMessage = document.querySelector('.success__message');
+const filters = document.querySelector('.img-filters');
 const ALERT_SHOW_TIME = 5000;
 
 const getPhotos = () => {
   fetch('https://26.javascript.pages.academy/kekstagram/data')
     .then((response) => response.json())
-    .then((data) => renderMiniatures(data))
+    .then((data) => {
+      setFilters(data);
+      filters.classList.remove('img-filters--inactive');
+    })
     .catch((err) => {
       errorMessage.classList.remove('hidden');
       errorMessage.textContent = `Не удалось получить фото с сервера. ${  err}`;
@@ -48,4 +52,4 @@ const postPhoto = (evt) => {
     });
 };
 
-export { getPhotos, postPhoto };
+export { getPhotos, postPhoto};

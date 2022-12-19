@@ -10,8 +10,9 @@ const preview = imgUploadOverlay.querySelector('.img-upload__preview').querySele
 //scale
 const scaleSmaller = document.querySelector('.scale__control--smaller');
 const scaleBigger = document.querySelector('.scale__control--bigger');
-//filters
-const filters = imgUploadOverlay.querySelector('.effects__list');
+
+//Effects
+const effects = imgUploadOverlay.querySelector('.effects__list');
 const sliderElement = document.querySelector('.effect-level__slider');
 //Validate data
 const hashtagInput = imgUploadOverlay.querySelector('.text__hashtags');
@@ -26,7 +27,7 @@ const closeEditWindow = () => {
   document.body.classList.remove('modal-open');
   imgUpload.value = '';
   preview.src = '';
-  //remove filters
+  //remove effects
   preview.style.filter = '';
   document.querySelector('.img-upload__effect-level').classList.add('hidden');
   preview.style.transform = `scale(${1})`;
@@ -62,7 +63,7 @@ imgUpload.addEventListener('change', (evt) => {
   preview.src = URL.createObjectURL(picture);
   scaleSmaller.addEventListener('click', editScale);
   scaleBigger.addEventListener('click', editScale);
-  filters.addEventListener('change', (filter) => {
+  effects.addEventListener('change', (filter) => {
     editFilter(filter.target.id);
     sliderElement.noUiSlider.on('update', () => {
       effectChangeValue(filter.target.id);
