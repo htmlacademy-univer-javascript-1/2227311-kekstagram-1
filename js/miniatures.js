@@ -1,8 +1,9 @@
-import { renderBigPicture } from './bigpic.js';
+import { renderBigPicture } from './big-pic.js';
 import { debounce } from './utils.js';
 
 const RERENDER_DELAY = 500;
 const RANDOM_FILTER_SIZE = 10;
+
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const pictures = document.querySelector('.pictures');
 const filterButtons = document.querySelectorAll('.img-filters__button');
