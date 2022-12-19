@@ -60,7 +60,7 @@ imgUpload.addEventListener('change', (evt) => {
   const [picture] = imgUpload.files;
   document.body.classList.add('modal-open');
   imgUploadOverlay.classList.remove('hidden');
-  preview.src = URL.createObjectURL(picture);
+  preview.src = URL.createObjectURL(picture); //module12-task2 already done here
   scaleSmaller.addEventListener('click', editScale);
   scaleBigger.addEventListener('click', editScale);
   effects.addEventListener('change', (filter) => {
